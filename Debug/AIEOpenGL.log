@@ -1,0 +1,24 @@
+﻿  Graph.cpp
+  Edge.cpp
+  Generating Code...
+  Compiling...
+  Node.cpp
+  GameObject.cpp
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\gameobject.cpp(33): warning C4552: '*': operator has no effect; expected operator with side-effect
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\gameobject.cpp(34): warning C4552: '*': operator has no effect; expected operator with side-effect
+  Application2D.cpp
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(86): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  Generating Code...
+glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(context.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(init.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+glfw3.lib(input.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(input.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+glfw3.lib(monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(monitor.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+glfw3.lib(window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(window.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_init.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_init.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_monitor.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_time.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_time.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_tls.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_tls.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+glfw3.lib(win32_window.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(win32_window.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+glfw3.lib(winmm_joystick.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(winmm_joystick.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+glfw3.lib(wgl_context.obj) : warning LNK4099: PDB 'glfw.pdb' was not found with 'glfw3.lib(wgl_context.obj)' or at 'C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\glfw.pdb'; linking object as if no debug info
+  AIEOpenGL.vcxproj -> C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\AIEOpenGL_d.exe
