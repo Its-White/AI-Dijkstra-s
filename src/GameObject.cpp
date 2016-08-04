@@ -1,10 +1,7 @@
-#include "GameObject.h"
-
 #include <GLFW/glfw3.h>
 #include "GameDefs.h"
 #include "SpriteBatch.h"
 #include "Texture.h"
-#include "Application2D.h"
 #include <iostream>
 
 GameObject::GameObject()
@@ -126,5 +123,16 @@ void GameObject::setAABB(Vector2 min, Vector2 max)
 	positionMin.y = min.y;
 	positionMax.x = max.x;
 	positionMax.y = max.y;
+}
+
+void GameObject::setVel(Vector2 vel)
+{
+	Velocity = vel;
+}
+
+void GameObject::setmaxVel(float vel_x, float vel_y)
+{
+	m_velocity.x = vel_x;
+	m_velocity.y = vel_y;
 }
 

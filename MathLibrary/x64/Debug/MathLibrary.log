@@ -1,14 +1,28 @@
-﻿  MathsLibrary.cpp
-e:\mathlibrary\mathlibrary\mathslibrary.cpp(26): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-e:\mathlibrary\mathlibrary\mathslibrary.cpp(31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
-  Compiling...
+﻿  Vector4.cpp
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\vector4.cpp(61): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Vector3.cpp
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\vector3.cpp(53): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  Vector2.cpp
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\vector2.cpp(62): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   Matrix4.cpp
-e:\mathlibrary\mathlibrary\matrix4.cpp(81): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-e:\mathlibrary\mathlibrary\matrix4.cpp(82): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-e:\mathlibrary\mathlibrary\matrix4.cpp(92): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-e:\mathlibrary\mathlibrary\matrix4.cpp(93): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-e:\mathlibrary\mathlibrary\matrix4.cpp(103): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-e:\mathlibrary\mathlibrary\matrix4.cpp(104): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix4.cpp(80): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix4.cpp(81): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix4.cpp(91): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix4.cpp(92): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix4.cpp(102): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix4.cpp(103): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Matrix3.cpp
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix3.cpp(66): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix3.cpp(67): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix3.cpp(77): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix3.cpp(78): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix3.cpp(90): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix3.cpp(91): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Matrix2.cpp
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix2.cpp(52): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\matrix2.cpp(53): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  MathsLibrary.cpp
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\mathslibrary.cpp(26): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\ai-dijkstra-s-sucks-\mathlibrary\mathslibrary.cpp(31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Generating Code...
-  MathLibrary.vcxproj -> E:\MathLibrary\x64\Debug\MathLibrary.lib
+  MathLibrary.vcxproj -> C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\AI-Dijkstra-s-sucks-\x64\Debug\MathLibrary.lib

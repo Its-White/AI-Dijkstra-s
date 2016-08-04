@@ -18,7 +18,7 @@ public:
 
 	Vector2 operator + (Vector2 other); // overload + to add vectors
 	Vector2 operator - (Vector2 other); // overload - to subtract vectors
-	Vector2 operator * (float num);		// overload * to times vector by float
+	Vector2 operator * (Vector2 num);		// overload * to times vector by float
 	friend Vector2 operator * (float num, Vector2 other);
 
 	float magnitude();					//find magnitude

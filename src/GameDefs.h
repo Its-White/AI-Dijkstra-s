@@ -4,6 +4,23 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include "MathsLibrary.h" //you'll need to do the static library connection stuff to include this
+#include "Application2D.h"
+#include <GLFW/glfw3.h>
+#include "Cursor.h"
+#include "SpriteBatch.h"
+#include "Texture.h"
+#include "Font.h"
+#include "GameObject.h"
+#include "Dijkstra.h"
+#include <iostream>
+#include <math.h>
+#include <fstream>
+#include <iterator>
+#include <string>
+#include <cmath>
+#include "Agent.h"
+
+
 const int SCREEN_WIDTH = 1280;
 const int SCREEN_HEIGHT = 720;
 
@@ -16,5 +33,7 @@ const int PLAYER_HALFH = 150/2;
 
 const int SPEED = 2;
 const int GRAVITY = 1;
+
+
 
 #endif

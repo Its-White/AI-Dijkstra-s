@@ -12,7 +12,7 @@
 
 #include "MathsLibrary.h"
 #include <string>
-#include "Node.h"
+#include "Dijkstra.h"
 
 class SpriteBatch;
 class Texture;
@@ -43,8 +43,14 @@ public:
 	char* getXY();
 	void setParent(int p) { parent = p; };	// Set parent
 	void setSprite(std::string filename);	// Set the local filename for the sprite
+	void setName(std::string m_name) { name = m_name; };
+	std::string getName() { return name; };
 	void loadSprite();						// Loads sprite from stored filename
 	void setAABB(Vector2 min, Vector2 max);
+	void setVel(Vector2 vel);
+	void setmaxVel(float vel_x, float vel_y);
+	Vector2 getVel() { return Velocity; };
+	Vector2 m_Vel() { return m_velocity; };
 
 	Vector3 mousePosition;
 protected:
@@ -54,9 +60,10 @@ protected:
 	Matrix3 localTransform;
 	Matrix3 worldTransform;
 
-	
+	std::string name;
 
-	Vector3 m_velocity;
+	Vector2 m_velocity;
+	Vector2 Velocity;
 
 	Vector2 positionMin;
 	Vector2 positionMax;
