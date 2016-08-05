@@ -5,6 +5,7 @@
 #include<queue>
 #include "MathsLibrary.h"
 #include "Texture.h"
+#include "SpriteBatch.h"
 class Node;
 
 class Path
@@ -69,16 +70,20 @@ public:
 	void addNode(std::string name, Vector2 pos);
 	void loadNodeImage(std::string n_name, std::string fileName);
 	void addPath(std::string source, std::string destination, int cost);
+	Vector2 getCost(std::string firstNode, std::string finalNode);
 	Vector2 getNodeLocation(std::string n_name);
 	Node* findNode(std::string n_name);
 	Node* findScreenNode(coord m_map);
 	std::vector<Node*>* reachable(std::string n_name);
 	std::vector<Node*>* shortestPath(std::string nameStart, std::string nameFinish); //Dijkstra's shortest path is implemented here
 
-private:
 	std::list<Node> nodes;
+	std::vector<Node*> e_nodes;
+
+private:
 
 	Vector2 position;
+	SpriteBatch*	m_spriteBatch;
 
 	std::string spriteFile;
 	Texture* m_sprite;

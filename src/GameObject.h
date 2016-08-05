@@ -24,12 +24,15 @@ public:
 	~GameObject();
 
 	float m_rotation;
-	Vector3 m_position;
+	Vector2 m_position;
 
 	void Update(float dt, bool a);
 	void Draw(SpriteBatch* batch);
 	const Matrix3 & getWorldTransform() { return worldTransform; };	// Return the World Transform of this object
 	const Matrix3 & getLocalTransform() { return localTransform; };
+
+	void seek(std::vector<GameObject*> obj, Vector2 v, Vector2 f, Vector2 h, float dTime);
+	void flee(std::vector<GameObject*> obj, Vector2 v, Vector2 f, Vector2 h, float dTime);
 
 	void setPosition(float x, float y);	// Set the local position
 	void setRotate(float x);
@@ -47,12 +50,17 @@ public:
 	std::string getName() { return name; };
 	void loadSprite();						// Loads sprite from stored filename
 	void setAABB(Vector2 min, Vector2 max);
-	void setVel(Vector2 vel);
+	void setVel(float vel);
 	void setmaxVel(float vel_x, float vel_y);
-	Vector2 getVel() { return Velocity; };
+	float getVel() { return Velocity; };
 	Vector2 m_Vel() { return m_velocity; };
 
 	Vector3 mousePosition;
+
+	Vector2 m_velocity;
+	float Velocity;
+	float acceleration;
+
 protected:
 	Texture* m_sprite;
 	std::string spriteFile;
@@ -61,9 +69,6 @@ protected:
 	Matrix3 worldTransform;
 
 	std::string name;
-
-	Vector2 m_velocity;
-	Vector2 Velocity;
 
 	Vector2 positionMin;
 	Vector2 positionMax;

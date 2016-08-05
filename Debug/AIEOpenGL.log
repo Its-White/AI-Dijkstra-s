@@ -1,3 +1,17 @@
 ﻿  Application2D.cpp
-c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\dijkstra.h(18): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\dijkstra.h(19): warning C4244: 'return': conversion from 'const float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(62): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(66): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(79): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(188): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(189): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(190): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(191): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(192): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\alexander.armst\documents\test\programming\users\alexander.armst\alexgame(gunrun)\game backup\src\application2d.cpp(242): warning C4018: '<': signed/unsigned mismatch
   AIEOpenGL.vcxproj -> C:\Users\alexander.armst\Documents\test\Programming\Users\alexander.armst\AlexGame(GunRun)\Game backup\bin\AIEOpenGL_d.exe

@@ -57,6 +57,44 @@ void GameObject::Draw(SpriteBatch* spritebatch)
 	spritebatch->drawSpriteTransformed3x3(m_sprite, worldTransform);
 }
 
+void GameObject::seek(std::vector<GameObject*> obj, Vector2 v, Vector2 f, Vector2 h, float dTime)
+{
+	v.x = obj.at(0)->getPosition().x - obj.at(1)->getPosition().x;
+	v.y = obj.at(0)->getPosition().y - obj.at(1)->getPosition().y;
+	v.normalise();
+	v.x*obj.at(1)->m_Vel();
+	v.y*obj.at(1)->m_Vel();
+
+	f = 1000 * v - obj.at(1)->m_velocity;
+	//objects.at(1)->setRotate(atan(V.x / V.y));
+
+	obj.at(1)->m_velocity = obj.at(1)->m_velocity + (dTime * f);
+	obj.at(1)->m_position.x += (obj.at(1)->m_velocity.x * dTime);
+	obj.at(1)->m_position.y += (obj.at(1)->m_velocity.y * dTime);
+
+	h = obj.at(1)->m_velocity;
+	h.normalise();
+}
+
+void GameObject::flee(std::vector<GameObject*> obj, Vector2 v, Vector2 f, Vector2 h, float dTime)
+{
+	v.x = obj.at(0)->getPosition().x - obj.at(1)->getPosition().x;
+	v.y = obj.at(0)->getPosition().y - obj.at(1)->getPosition().y;
+	v.normalise();
+	v.x*obj.at(1)->m_Vel();
+	v.y*obj.at(1)->m_Vel();
+
+	f = 1000 * v - obj.at(1)->m_velocity;
+	//objects.at(1)->setRotate(atan(V.x / V.y));
+
+	obj.at(1)->m_velocity = obj.at(1)->m_velocity - (dTime * f);
+	obj.at(1)->m_position.x += (obj.at(1)->m_velocity.x * dTime);
+	obj.at(1)->m_position.y += (obj.at(1)->m_velocity.y * dTime);
+
+	h = obj.at(1)->m_velocity;
+	h.normalise();
+}
+
 void GameObject::setPosition(float x, float y)
 {
 	m_position.x = x;
@@ -125,7 +163,7 @@ void GameObject::setAABB(Vector2 min, Vector2 max)
 	positionMax.y = max.y;
 }
 
-void GameObject::setVel(Vector2 vel)
+void GameObject::setVel(float vel)
 {
 	Velocity = vel;
 }

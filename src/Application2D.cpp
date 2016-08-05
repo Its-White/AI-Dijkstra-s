@@ -7,6 +7,9 @@ const int inf = 1 << 30;
 Graph * nodeMap = new Graph();
 Cursor cursor;
 Node targetNode;
+Vector2 force;
+Vector2 V;
+Vector2 Heading;
 
 Application2D* Application2D::m_pInstance = nullptr;
 
@@ -18,6 +21,8 @@ Application2D* Application2D::getInstance()
 Application2D::Application2D() {
 	if (m_pInstance == nullptr)
 		m_pInstance = this;
+
+	m_click = false;
 }
 
 Application2D::~Application2D() {
@@ -45,6 +50,22 @@ bool Application2D::startup() {
 	cursor = glfwCreateCursor(&c_image, 0, 0);
 
 	Vector2 vel(100, 100);
+
+	nodeMap->addNode("A", Vector2(40, 20));
+	nodeMap->addNode("B", Vector2(40, 700));
+	nodeMap->addNode("C", Vector2(1240, 20));
+	nodeMap->addNode("D", Vector2(1240, 700));
+	nodeMap->addNode("E", Vector2(300, 189));
+
+	nodeMap->addPath("A", "B", nodeMap->getCost("A", "B").magnitude());
+	nodeMap->addPath("A", "D", nodeMap->getCost("A", "D").magnitude());
+	nodeMap->addPath("B", "D", nodeMap->getCost("B", "D").magnitude());
+	nodeMap->addPath("B", "C", nodeMap->getCost("B", "C").magnitude());
+	nodeMap->addPath("C", "D", nodeMap->getCost("C", "D").magnitude());
+	nodeMap->addPath("A", "E", nodeMap->getCost("A", "E").magnitude());
+	nodeMap->addPath("E", "C", nodeMap->getCost("E", "C").magnitude()); 
+
+	e_move = nodeMap->shortestPath("A", "C"); 
 	
 	//objects.push_back(new GameObject());
 	//objects.at(0)->setSprite("./bin/textures/idle_1.png");
@@ -55,6 +76,7 @@ bool Application2D::startup() {
 	objects.push_back(new GameObject());
 	objects.at(0)->setSprite("./bin/textures/bullet.png");
 	objects.at(0)->loadSprite();
+	objects.at(0)->setPosition(HALF_SCRW, HALF_SCRH);
 	objects.at(0)->setName("Cursor");
 
 	//objects.push_back(new GameObject());
@@ -67,8 +89,8 @@ bool Application2D::startup() {
 	objects.push_back(new GameObject());
 	objects.at(1)->setSprite("./bin/textures/enemy.png");
 	objects.at(1)->loadSprite();
-	objects.at(1)->setmaxVel(10,10);
-	//objects.at(1)->setPosition(HALF_SCRW, HALF_SCRH);
+	objects.at(1)->setmaxVel(100, 100);
+	objects.at(1)->setPosition(nodeMap->getNodeLocation("A").x, nodeMap->getNodeLocation("A").y);
 	objects.at(1)->setName("Enemy");
 
 	//objects.push_back(new GameObject());
@@ -80,17 +102,6 @@ bool Application2D::startup() {
 	//objects.at(2)->loadSprite();
 	//objects.at(2)->setPosition(350, 200);
 
-	nodeMap->addNode("A", Vector2(40, 20));
-	nodeMap->addNode("B", Vector2(40, 700));
-	nodeMap->addNode("C", Vector2(1240, 20));
-	nodeMap->addNode("D", Vector2(1240, 700));
-
-	nodeMap->addPath("A", "B", 40);
-	nodeMap->addPath("A", "D", 80);
-	nodeMap->addPath("A", "C", 40);
-	nodeMap->addPath("B", "D", 40);
-	nodeMap->addPath("B", "C", 80);
-	nodeMap->addPath("C", "D", 38);
 
 	m_bPause = true;
 
@@ -115,15 +126,15 @@ bool Application2D::update(float deltaTime) {
 
 	// pause only used at start of the game, can't be toggled during game
 	if (m_bPause) {
-		if (IsKeyDown(GLFW_KEY_ENTER))
+		if (IsKeyDown(GLFW_KEY_ENTER)) {
 			m_bPause = false;
-		return true; 
+		}
+		return true;
 	}
 
 	glfwGetCursorPos(m_window, &xpos, &ypos);
 	Vector2 cursorPos((float)xpos + SCREEN_WIDTH / 2, (float)(SCREEN_HEIGHT - ypos) - SCREEN_HEIGHT / 2); // the origin of the cursor is the center of the screen
 	Vector2 distanceBetween;
-	//Vector2 tempArmWorldPos(objects.at(0)->getWorldTransform()->m[2].x, objects.at(0)->getWorldTransform()->m[2].y);
 	distanceBetween = objects.at(1)->getPosition() - cursorPos; //finds the distance between the cursor and the player origin
 	glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
@@ -142,7 +153,7 @@ bool Application2D::update(float deltaTime) {
 	}
 */
 	if (cursor.cursor_enter_window(m_window, inWindow, &xpos, &ypos)){
-		objects.at(0)->setPosition(cursorPos.x, cursorPos.y);						//sets the position of the cursor
+		objects.at(0)->setPosition(cursorPos.x, cursorPos.y);							//sets the position of the cursor
 		//objects.at(1)->setRotate(atan(distanceBetween.y / distanceBetween.x));		//sets the rotation of the arm based on the position of the cursor
 	}
 
@@ -153,21 +164,41 @@ bool Application2D::update(float deltaTime) {
 	if (IsKeyDown(GLFW_KEY_P)) {
 		load();  //Vice versa the P key will load the saved state.
 	}
-
-	if (isMouseButtonPressed(GLFW_MOUSE_BUTTON_1)) 
+	if (IsKeyDown(GLFW_KEY_N))
 	{
-	}	
+		objects.at(1)->setPosition(e_move->at(1)->getPosition().x, e_move->at(1)->getPosition().y);
+	}
+	if (isMouseButtonPressed(GLFW_MOUSE_BUTTON_1)) //Seek
+	{
+		objects.at(1)->seek(objects, V,force,Heading,deltaTime);
+	}
 
-	Vector2 force;
-	Vector2 spaceBetween;
+	if (isMouseButtonPressed(GLFW_MOUSE_BUTTON_2)) //Flee
+	{
+		objects.at(1)->flee(objects, V, force, Heading, deltaTime);
+	}
 
-	spaceBetween = (objects.at(0)->getPosition() - objects.at(1)->getPosition()) * objects.at(1)->m_Vel();
-	spaceBetween.normalise();
-	force = spaceBetween - objects.at(0)->getVel();
-	objects.at(1)->setVel(force * deltaTime);
-	objects.at(1)->setPosition(objects.at(1)->getVel().x * deltaTime, objects.at(1)->getVel().y * deltaTime);
-
-	std::cout << objects.at(1)->getPosition().x << " " << objects.at(1)->getPosition().y << std::endl;
+	if (isMouseButtonPressed(GLFW_MOUSE_BUTTON_3) && !m_click)
+	{
+		Vector2 temp;
+		b = a;
+		nodeMap->addNode(b, objects.at(0)->getPosition());
+		temp = nodeMap->getNodeLocation(b) - nodeMap->getNodeLocation("A");
+		nodeMap->e_nodes.push_back(nodeMap->findNode(b));
+		nodeMap->addPath("A", b, temp.magnitude());
+		nodeMap->addPath("B", b, temp.magnitude());
+		nodeMap->addPath("C", b, temp.magnitude());
+		nodeMap->addPath("D", b, temp.magnitude());
+		nodeMap->addPath("E", b, temp.magnitude());
+		m_click = true;
+		a++;
+		std::cout << nodeMap->getNodeLocation(b).x << " " << nodeMap->getNodeLocation(b).y << std::endl;
+	}
+	else if (!isMouseButtonPressed(GLFW_MOUSE_BUTTON_3) && m_click) {
+		m_click = false;
+	}
+	
+	//std::cout << objects.at(1)->getPosition().x << " " << objects.at(1)->getPosition().y << std::endl;
 
 	/*if (objects.at(0)->getPositionY() > GROUND_Y) {
 		objects.at(0)->Update(deltaTime, true);
@@ -177,6 +208,8 @@ bool Application2D::update(float deltaTime) {
 	return true;
 
 }
+
+
 
 void Application2D::draw() {
 
@@ -198,6 +231,22 @@ void Application2D::draw() {
 			m_spriteBatch->drawText(m_font, "player position: ", 10, 35, -1);
 			m_spriteBatch->drawLine(objects.at(1)->getPositionX(), objects.at(1)->getPositionY(), objects.at(0)->getPositionX(), objects.at(0)->getPositionY(), 1, 0);
 			//objects.at(1)->setPosition(nodeMap->getNodeLocation("A").x, nodeMap->getNodeLocation("A").y);
+			m_spriteBatch->drawLine(nodeMap->getNodeLocation("A").x, nodeMap->getNodeLocation("A").y, nodeMap->getNodeLocation("B").x, nodeMap->getNodeLocation("B").y, 1, 0);
+			//m_spriteBatch->drawLine(nodeMap->getNodeLocation("A").x, nodeMap->getNodeLocation("A").y, nodeMap->getNodeLocation("C").x, nodeMap->getNodeLocation("C").y, 1, 0);
+			m_spriteBatch->drawLine(nodeMap->getNodeLocation("A").x, nodeMap->getNodeLocation("A").y, nodeMap->getNodeLocation("D").x, nodeMap->getNodeLocation("D").y, 1, 0);
+			m_spriteBatch->drawLine(nodeMap->getNodeLocation("A").x, nodeMap->getNodeLocation("A").y, nodeMap->getNodeLocation("E").x, nodeMap->getNodeLocation("E").y, 1, 0);
+			m_spriteBatch->drawLine(nodeMap->getNodeLocation("B").x, nodeMap->getNodeLocation("B").y, nodeMap->getNodeLocation("D").x, nodeMap->getNodeLocation("D").y, 1, 0);
+			m_spriteBatch->drawLine(nodeMap->getNodeLocation("B").x, nodeMap->getNodeLocation("B").y, nodeMap->getNodeLocation("C").x, nodeMap->getNodeLocation("C").y, 1, 0);
+			m_spriteBatch->drawLine(nodeMap->getNodeLocation("C").x, nodeMap->getNodeLocation("C").y, nodeMap->getNodeLocation("D").x, nodeMap->getNodeLocation("D").y, 1, 0);
+			m_spriteBatch->drawLine(nodeMap->getNodeLocation("E").x, nodeMap->getNodeLocation("E").y, nodeMap->getNodeLocation("C").x, nodeMap->getNodeLocation("C").y, 1, 0);
+			for (int i = 0; i < nodeMap->e_nodes.size(); i++)
+			{
+				m_spriteBatch->drawLine(nodeMap->getNodeLocation(nodeMap->e_nodes[i]->getName()).x, nodeMap->getNodeLocation(nodeMap->e_nodes[i]->getName()).y, nodeMap->getNodeLocation("A").x, nodeMap->getNodeLocation("A").y, 1, 0);
+				m_spriteBatch->drawLine(nodeMap->getNodeLocation(nodeMap->e_nodes[i]->getName()).x, nodeMap->getNodeLocation(nodeMap->e_nodes[i]->getName()).y, nodeMap->getNodeLocation("B").x, nodeMap->getNodeLocation("B").y, 1, 0);
+				m_spriteBatch->drawLine(nodeMap->getNodeLocation(nodeMap->e_nodes[i]->getName()).x, nodeMap->getNodeLocation(nodeMap->e_nodes[i]->getName()).y, nodeMap->getNodeLocation("C").x, nodeMap->getNodeLocation("C").y, 1, 0);
+				m_spriteBatch->drawLine(nodeMap->getNodeLocation(nodeMap->e_nodes[i]->getName()).x, nodeMap->getNodeLocation(nodeMap->e_nodes[i]->getName()).y, nodeMap->getNodeLocation("D").x, nodeMap->getNodeLocation("D").y, 1, 0);
+				m_spriteBatch->drawLine(nodeMap->getNodeLocation(nodeMap->e_nodes[i]->getName()).x, nodeMap->getNodeLocation(nodeMap->e_nodes[i]->getName()).y, nodeMap->getNodeLocation("E").x, nodeMap->getNodeLocation("E").y, 1, 0);
+			}
 		}
 	}
 

@@ -97,13 +97,20 @@ void Graph::addPath(std::string source, std::string destination, int cost)
 	sourceNode->addPath(newPath);
 }
 
+Vector2 Graph::getCost(std::string firstNode, std::string finalNode)
+{
+	Vector2 cost;
+	cost = findNode(firstNode)->getPosition() - findNode(finalNode)->getPosition();
+	return cost;
+}
+
 Vector2 Graph::getNodeLocation(std::string n_name) // pass in the name of the node you want to find the location of
 {
 	for (auto &node : nodes)
 	{
 		if (node.getName() == n_name)
 		{
-			std::cout << node.getPosition().x << ", " << node.getPosition().y << std::endl;
+			//std::cout << node.getPosition().x << ", " << node.getPosition().y << std::endl;
 			return node.getPosition();
 		}
 	}
@@ -262,7 +269,7 @@ std::vector<Node*>* Graph::makeNodePath(std::string nameStart, std::string nameF
 	Node* finalPathBackwards = findNode(nameFinish);
 	while (finalPathBackwards->from != nullptr)
 	{
-		//cout << "Final Path: " << finalPathBackwards->getName() << "  From ->  " << finalPathBackwards->from->getName() << endl;
+		std::cout << "Final Path: " << finalPathBackwards->getName() << "  From:  " << finalPathBackwards->from->getName() << std::endl;
 		nodePath->push_back(finalPathBackwards);
 		finalPathBackwards = finalPathBackwards->from;
 	}

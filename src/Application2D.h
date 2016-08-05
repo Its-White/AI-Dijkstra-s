@@ -33,13 +33,18 @@ public:
 	void load(); // load from file (read the vector of game objects from disk,
 				 // then reinitialise their texture pointers
 
+	std::string b;
+	
 protected:
+	char a = 70;
+	bool m_click;
 
 	SpriteBatch*	m_spriteBatch;
 	Font*			m_font;
 	
 	GameObject* m_pPlayer;
 	std::vector<GameObject *> objects;
+	std::vector<Node*>* e_move;
 	std::string saveFile = "gameSave.sav";
 
 	bool m_bPause;
