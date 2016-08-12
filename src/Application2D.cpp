@@ -166,6 +166,7 @@ bool Application2D::update(float deltaTime) {
 	}
 	if (IsKeyDown(GLFW_KEY_N))
 	{
+		//create a for loop that goes through how many nodes are in the path and then update along the nodes
 		objects.at(1)->setPosition(e_move->at(1)->getPosition().x, e_move->at(1)->getPosition().y);
 	}
 	if (isMouseButtonPressed(GLFW_MOUSE_BUTTON_1)) //Seek

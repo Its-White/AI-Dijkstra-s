@@ -84,7 +84,7 @@ void GameObject::flee(std::vector<GameObject*> obj, Vector2 v, Vector2 f, Vector
 	v.x*obj.at(1)->m_Vel();
 	v.y*obj.at(1)->m_Vel();
 
-	f = 1000 * v - obj.at(1)->m_velocity;
+	f = 100 * v - obj.at(1)->m_velocity;
 	//objects.at(1)->setRotate(atan(V.x / V.y));
 
 	obj.at(1)->m_velocity = obj.at(1)->m_velocity - (dTime * f);
